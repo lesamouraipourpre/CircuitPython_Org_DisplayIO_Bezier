@@ -25,7 +25,11 @@ with open(path.join(here, "README.rst"), encoding="utf-8") as f:
 setup(
     # Community Bundle Information
     name="circuitpython-displayio-bezier",
-    use_scm_version=True,
+    use_scm_version={
+        # This is needed for the PyPI version munging in the Github Actions release.yml
+        "git_describe_command": "git describe --tags --long",
+        "local_scheme": "no-local-version",
+    },
     setup_requires=["setuptools_scm"],
     description="Draw Bezier curves with DisplayIO",
     long_description=long_description,
@@ -52,7 +56,7 @@ setup(
     ],
     # What does your project relate to?
     keywords="adafruit blinka circuitpython micropython displayio_bezier displayio bezier "
-             "curves",
+    "curves",
     # You can just specify the packages manually here if your project is
     # simple. Or you can use find_packages().
     # TODO: IF LIBRARY FILES ARE A PACKAGE FOLDER,
