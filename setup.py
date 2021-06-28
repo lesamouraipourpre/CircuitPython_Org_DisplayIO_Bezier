@@ -39,9 +39,7 @@ setup(
     # Author details
     author="James Carr",
     author_email="",
-    install_requires=[
-        "Adafruit-Blinka",
-    ],
+    install_requires=["Adafruit-Blinka"],
     # Choose your license
     license="MIT",
     # See https://pypi.python.org/pypi?%3Aaction=list_classifiers

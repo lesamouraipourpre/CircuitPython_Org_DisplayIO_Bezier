@@ -3,7 +3,7 @@ Introduction
 
 
 .. image:: https://readthedocs.org/projects/circuitpython-displayio_bezier/badge/?version=latest
-    :target: https://circuitpython-displayio_bezier.readthedocs.io/
+    :target: https://circuitpython-displayio-bezier.readthedocs.io/
     :alt: Documentation Status
 
 
@@ -23,12 +23,12 @@ Introduction
 
 Draw Bezier curves with DisplayIO
 
-
 Dependencies
 =============
 This driver depends on:
 
 * `Adafruit CircuitPython <https://github.com/adafruit/circuitpython>`_
+* A CircuitPython DisplayIO driver and Display
 
 Please ensure all dependencies are available on the CircuitPython filesystem.
 This is easily achieved by downloading
@@ -41,10 +41,8 @@ Installing from PyPI
 .. note:: This library is not available on PyPI yet. Install documentation is included
    as a standard element. Stay tuned for PyPI availability!
 
-.. todo:: Remove the above note if PyPI version is/will be available at time of release.
-
-On supported GNU/Linux systems like the Raspberry Pi, you can install the driver locally `from
-PyPI <https://pypi.org/project/circuitpython-displayio_bezier/>`_.
+On supported GNU/Linux systems like the Raspberry Pi, you can install the driver locally
+`from PyPI <https://pypi.org/project/circuitpython-displayio-bezier/>`_.
 To install for current user:
 
 .. code-block:: shell
@@ -83,7 +81,7 @@ following command to install:
 
 .. code-block:: shell
 
-    circup install displayio_bezier
+    circup install circuitpython-displayio-bezier
 
 Or the following command to update an existing version:
 
@@ -94,8 +92,9 @@ Or the following command to update an existing version:
 Usage Example
 =============
 
-.. todo:: Add a quick, simple example. It and other examples should live in the
-examples folder and be included in docs/examples.rst.
+.. code-block:: python3
+
+    example code
 
 Contributing
 ============
