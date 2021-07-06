@@ -7,7 +7,8 @@ import time
 import board
 import displayio
 
-from displayio_bezier import Bezier
+from displayio_bezier.bezier import Bezier
+from displayio_bezier.path import BezierPath
 
 # Create a display object
 
@@ -27,35 +28,22 @@ color_palette[0] = 0x000000
 bg_sprite = displayio.TileGrid(color_bitmap, pixel_shader=color_palette, x=0, y=0)
 main_group.append(bg_sprite)
 
-# bezier = Bezier(points=((0, 0), (display.width, display.height)))
-# bezier = Bezier(points=((0, 0), (0, display.height), (display.width, display.height)))
-# bezier = Bezier(
-#     points=(
-#         (0, 0),
-#         (0, display.height),
-#         (display.width, display.height),
-#         (display.width, 0),
-#     ),
-#     color=0xFFFFFF
-# )
-# main_group.append(bezier)
-
-R = 0xFF0000
-G = 0x00FF00
-B = 0x0000FF
-
 ### C ###
-main_group.append(Bezier(points=((120, 80), (110, 30), (80, 30)), color=R))
-main_group.append(Bezier(points=((80, 30), (30, 30), (30, 120)), color=G))
-main_group.append(Bezier(points=((30, 120), (30, 210), (80, 210)), color=B))
-main_group.append(Bezier(points=((80, 210), (110, 210), (120, 160)), color=R))
+c_path = BezierPath((120, 80))
+c_path.cubic_to((80, 30), handle=(110, 30))
+c_path.cubic_to((30, 120), handle=(30, 30))
+c_path.cubic_to((80, 210), handle=(30, 210))
+c_path.cubic_to((120, 160), handle=(110, 210))
+main_group.append(Bezier(c_path, color=0xFF8000, stroke=2))
 
 ### P ###
-main_group.append(Bezier(points=((190, 210), (190, 30)), color=G))
-main_group.append(Bezier(points=((190, 30), (240, 30)), color=B))
-main_group.append(Bezier(points=((240, 30), (290, 30), (290, 90)), color=R))
-main_group.append(Bezier(points=((290, 90), (290, 150), (240, 150)), color=G))
-main_group.append(Bezier(points=((240, 150), (190, 150)), color=B))
+p_path = BezierPath((190, 210))
+p_path.line_to((190, 30))
+p_path.line_to((240, 30))
+p_path.cubic_to((290, 90), handle=(290, 30))
+p_path.cubic_to((240, 150), handle=(290, 150))
+p_path.line_to((190, 150))
+main_group.append(Bezier(p_path, color=0x0080FF, stroke=4))
 
 display.show(main_group)
 
